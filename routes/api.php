@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/login', 'AuthController@login');
     Route::post('/register', 'AuthController@register');
     Route::post('forgot-password', 'AuthController@sendPasswordResetEmail');
-    // forget password
-    
-   // Route::post('check-forgot-password-code', 'AuthController@checkForgetPasswordCode');
-   // Route::post('set-new-password', 'AuthController@setNewPassword'); 
+    Route::post('reset-password','AuthController@passwordResetProcess');
+   
 
 

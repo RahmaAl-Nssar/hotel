@@ -157,7 +157,7 @@ class AuthController extends Controller
     }
 
     public function validEmail($email) {
-       return !!User::where('email', $email)->first();
+       return User::where('email', $email)->first();
     }
 
     public function generateToken($email){
@@ -167,7 +167,7 @@ class AuthController extends Controller
         return $isOtherToken->token;
       }
 
-      $token = Str::random(80);;
+      $token = Str::random(80);
       $this->storeToken($token, $email);
       return $token;
     }
@@ -205,9 +205,7 @@ class AuthController extends Controller
   
       // Token not found response
       private function tokenNotFoundError() {
-        //   return response()->json([
-        //     'error' => 'Either your email or token is wrong.'
-        //   ],Response::HTTP_UNPROCESSABLE_ENTITY);
+      
           return $this->returnError(400,'يوجد خطأ بالايميل أو التوكين');
       }
   

@@ -1,9 +1,9 @@
 @component('mail::message')
 # Introduction
 
-The body of your message.
+Please click this button to reset Password.
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => 'password/reset/'.$token])
 Button Text
 @endcomponent
 

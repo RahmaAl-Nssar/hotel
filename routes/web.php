@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('BEJTxFxjDfDSXhXdJVM0')->group(function() {
-    Auth::routes(['register' => false]);
-});
+// Route::prefix('BEJTxFxjDfDSXhXdJVM0')->group(function() {
+//     Auth::routes(['register' => false]);
+// });
 
 
 Route::get('/home', 'HomeController@index')->name('home');
