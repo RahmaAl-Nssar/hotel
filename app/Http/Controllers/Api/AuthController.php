@@ -21,7 +21,9 @@ use Illuminate\Support\Str;
 class AuthController extends Controller
 {
     use ResponseTrait;
-
+    public function __construct() {
+        $this->middleware('token.auth', ['except' => ['login', 'register','sendPasswordResetEmail','passwordResetProcess']]);
+    }
     /**
      * Get a JWT via given credentials.
      *
@@ -142,7 +144,7 @@ class AuthController extends Controller
             return $this->returnError('الايميل غير موجود', 400);
         } else {
             // If email exists
-            $this->sendMail($request->email);
+           $this->sendMail($request->email);
             return $this->returnError(' تم ارسال الكود إلى بريدك الالكتروني لاعادة تعيين كلمة المرور ', 200);
            
         }
